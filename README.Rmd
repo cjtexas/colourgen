@@ -11,6 +11,10 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+### Install
+
+Install using `devtools::install_github("onehundredpercenttexan/colourgen")`
+
 ### Basic Functionality
 
 The `colourgen` package provides a single, consistent interface for generating colour palettes in R.

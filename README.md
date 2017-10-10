@@ -1,11 +1,16 @@
 colourgen
 ================
 
+-   [Install](#install)
 -   [Basic Functionality](#basic-functionality)
 -   [No Limitations](#no-limitations)
 -   [COLOURLovers API](#colourlovers-api)
 -   [Other Options](#other-options)
 -   [Summary](#summary)
+
+### Install
+
+Install using `devtools::install_github("onehundredpercenttexan/colourgen")`
 
 ### Basic Functionality
 
