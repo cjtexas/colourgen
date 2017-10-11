@@ -13,8 +13,6 @@
 #' @param default logical should default palette be Tableau-esque orange-blue diverging?
 #'
 #' @return list object containing palette and plot
-#' 
-#' @importFrom jsonlite fromJSON
 #'
 #' @examples 
 #' 
@@ -37,6 +35,7 @@
 #'
 make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default=TRUE) {
   
+  # load these from file to reduce dependency
   brewer_list <- jsonlite::fromJSON(system.file("json/brewerList.json", package = "colourgen"))
   brewer_names <- names(brewer_list)
   
@@ -65,11 +64,12 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
     colour_fun <- colorRampPalette(brewer_list[[column_match]])
   } 
 
+  # assume that a numeric is a COLOURLovers palette ID
   if (is.numeric(colour)) {
     colour_fun <- tryCatch({
-      # try colourlovers API with user supplied palette ID
-      res <- jsonlite::fromJSON(sprintf("http://www.colourlovers.com/api/palette/%s?format=json", colour[1]))
-      col_vec <- unlist(res$colors)
+      res <- readLines(sprintf("http://www.colourlovers.com/api/palette/%s", colour[1]), warn = F)
+      res <- res[which(grepl("<hex>(.*?)</hex>", res))]
+      col_vec <- sub("\\t\t\t<hex>(.*?)</hex>",  "\\1", res)
       col_vec <- paste0('#', col_vec)
       colorRampPalette(col_vec)
     }, error = function(e) {

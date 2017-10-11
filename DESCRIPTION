@@ -1,11 +1,10 @@
 Package: colourgen
 Title: One Colour Palette Interface to rule them all
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Caleb", "Jenkins", email = "calebajenkins@gmail.com", role = c("aut", "cre"))
 Description: Provides a single, consistent interface for generating colour palettes in R.
     Plot previewing and actual hex colors are the main features here.
 Depends: R (>= 3.3.3),
-    jsonlite,
     graphics
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
