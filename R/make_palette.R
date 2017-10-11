@@ -14,6 +14,8 @@
 #'
 #' @return list object containing palette and plot
 #'
+#' @import graphics grDevices
+#'
 #' @examples 
 #' 
 #' ### Brewer Colour Palette 
@@ -36,7 +38,7 @@
 make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default=TRUE) {
   
   # load these from file to reduce dependency
-  data("brewer_list", package = "colourgen")
+  data("brewer_list")
   brewer_names <- names(brewer_list)
   
   if (length(colour)>1) {

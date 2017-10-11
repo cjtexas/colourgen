@@ -1,5 +1,7 @@
 #' default_pal
 #' 
+#' @import graphics grDevices
+#' 
 default_pal <- function(default) {
   invalid_color_warning <- ifelse(default, 
                                   "Empty or Unknown Colour(s)... \n  Defaulting to Tableau-esque \n  Orange-Blue Diverging Palette",
