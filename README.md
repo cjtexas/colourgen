@@ -16,7 +16,7 @@ Install using `devtools::install_github("onehundredpercenttexan/colourgen")`
 
 The `colourgen` package provides a single, consistent interface for generating colour palettes in R. The `colourgen::make_palette` function returns a list object containing a base graphics `plot` preview and `palette` character vector which make generating, inspecting and fine-tuning color palettes a breeze.
 
-The `colour` parameter will accept any base R color function, `RColorBrewer` named palette, `viridis` named palette or variable-length character vector of any combination of base `grDevices::colours` and hexidecimal colors.
+The `colour` parameter will accept any base R color function, `RColorBrewer` named palette, `viridis` named palette or variable-length character vector of any combination of base `grDevices::colours` and hexadecimal colors.
 
 There aren't enough good diverging palettes so `colourgen::make_palette` will default some right out-of-the box.
 
@@ -66,6 +66,10 @@ If you want to interpolate a palette that normally has a hard limit; don't worry
 `colourgen` also supports the [COLOURLovers](http://www.colourlovers.com/palettes) palette API. Just supply a valid paletteID and you can interpolate over that palette 'til your heart's content.
 
 `colourgen::make_palette(colour = 3914747, n = 9)`
+
+    ## Empty or Unknown Colour(s)... 
+    ##   Defaulting to Tableau-esque 
+    ##   Orange-Blue Diverging Palette
 
 ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
 
