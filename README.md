@@ -57,7 +57,7 @@ my_palette_redo <- colourgen::make_palette(colour = my_palette$palette)
 
 If you want to interpolate a palette that normally has a hard limit; don't worry, `colourgen` was created for this very reason and wil return as many colors as you need for your factor levels! *NOTE:, you should still be careful and use common sense ;)*
 
-`colourgen::make_palette("set1", n = 15)`
+`colourgen::make_palette(colour = "set1", n = 15)`
 
 ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
 
