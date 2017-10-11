@@ -3,4 +3,3 @@
 export(make_palette)
 import(grDevices)
 import(graphics)
-importFrom(utils, data)

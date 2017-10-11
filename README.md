@@ -67,10 +67,6 @@ If you want to interpolate a palette that normally has a hard limit; don't worry
 
 `colourgen::make_palette(colour = 3914747, n = 9)`
 
-    ## Empty or Unknown Colour(s)... 
-    ##   Defaulting to Tableau-esque 
-    ##   Orange-Blue Diverging Palette
-
 ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
 
 ### Other Options
