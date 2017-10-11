@@ -14,7 +14,7 @@ Install using `devtools::install_github("onehundredpercenttexan/colourgen")`
 
 ### Basic Functionality
 
-The `colourgen` package provides a single, consistent interface for generating colour palettes in R. The `colourgen::make_palette` function returns a list object containing a base graphics `plot` preview and `palette` character vector which make generating, inspecing and fine-tuning color palettes a breeze.
+The `colourgen` package provides a single, consistent interface for generating colour palettes in R. The `colourgen::make_palette` function returns a list object containing a base graphics `plot` preview and `palette` character vector which make generating, inspecting and fine-tuning color palettes a breeze.
 
 The `colour` parameter will accept any base R color function, `RColorBrewer` named palette, `viridis` named palette or variable-length character vector of any combination of base `grDevices::colours` and hexidecimal colors.
 
@@ -55,7 +55,7 @@ my_palette_redo <- colourgen::make_palette(colour = my_palette$palette)
 
 ### No Limitations
 
-If you want interpolate a palette that normally has a hard limit; don't worry, `colourgen` was created for this very reason and wil return as many colors as you need for your factor levels! *NOTE:, you should still be careful and use common sense ;)*
+If you want to interpolate a palette that normally has a hard limit; don't worry, `colourgen` was created for this very reason and wil return as many colors as you need for your factor levels! *NOTE:, you should still be careful and use common sense ;)*
 
 `colourgen::make_palette("set1", n = 15)`
 
@@ -83,4 +83,4 @@ If you want interpolate a palette that normally has a hard limit; don't worry, `
 
 ### Summary
 
-`colourgen` aims to be a simple, but effective solution to the common task of crafting and previewing color palettes from many diverse sources. I hope you find it useful and also feel free to make merge requests for bugs and improvements or adding new features if you like.
+`colourgen` aims to be a simple, but effective solution to the common task of crafting and previewing color palettes from many diverse sources. I hope you find it useful and also feel free to make pull/merge requests for bugs and improvements or adding new features if you like.
