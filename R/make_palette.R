@@ -38,7 +38,7 @@
 make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default=TRUE) {
   
   # load these from file to reduce dependency
-  data("brewer_list")
+  utils::data("brewer_list", package = "colourgen", envir = environment())
   brewer_names <- names(brewer_list)
   
   if (length(colour)>1) {
