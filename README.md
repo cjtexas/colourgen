@@ -5,6 +5,7 @@ colourgen
 -   [Basic Functionality](#basic-functionality)
 -   [No Limitations](#no-limitations)
 -   [COLOURLovers API](#colourlovers-api)
+-   [Image Sampling](#image-sampling)
 -   [Other Options](#other-options)
 -   [Summary](#summary)
 
@@ -69,17 +70,25 @@ If you want to interpolate a palette that normally has a hard limit; don't worry
 
 ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
 
+### Image Sampling
+
+`colourgen` will also accept an image path or url. For example, let's make a palette from the R logo!
+
+`colourgen::make_palette(colour = "http://r-project.org/Rlogo.png", n = 7)`
+
+![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-6-1.png)
+
 ### Other Options
 
 `colourgen` will let you shuffle or reverse the returned palette if you need to.
 
 `colourgen::make_palette(colour = "set3", n = 9, shuffle = TRUE)`
 
-![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-6-1.png)
+![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png)
 
 `colourgen::make_palette(colour = "Purples", n = 15, reverse = TRUE)`
 
-![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png)
+![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-8-1.png)
 
 ### Summary
 

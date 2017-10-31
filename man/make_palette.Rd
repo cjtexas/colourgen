@@ -25,6 +25,7 @@ list object containing palette and plot
 This function will generate colour palettes of arbitrary size
 from an R base graphics color function, ColorBrewer named palette, 
 COLOURLovers pallete ID or vector of named or hex colours.
+Also, a source image file (png or jpeg) or url can be used.
 Defaults to a nice Tableau-esque Orange->Blue divering or 
 Stephen Few-esque Earth->Emerald...
 }
@@ -40,6 +41,9 @@ make_palette(colour = 987654)
 ### Custom Colour Vector
 my_colours <- c("#CAF60D", "#18D33A", "#4255EC", "#E60873", "#19312A")
 make_palette(colour = my_colours)
+
+### Sample Source Image
+make_palette(colour = "https://www.r-project.org/Rlogo.png")
 
 ### Default Behaviour
 make_palette(default = TRUE)

@@ -64,6 +64,16 @@ invisible(colourgen::make_palette(colour = 3914747, n = 9))
 ```
 
 
+### Image Sampling
+
+`colourgen` will also accept an image path or url. For example, let's make a palette from the R logo!
+
+`colourgen::make_palette(colour = "http://r-project.org/Rlogo.png", n = 7)`
+
+```{r, echo=FALSE}
+invisible(colourgen::make_palette(colour = "http://r-project.org/Rlogo.png", n = 7))
+```
+
 ### Other Options
 
 `colourgen` will let you shuffle or reverse the returned palette if you need to.

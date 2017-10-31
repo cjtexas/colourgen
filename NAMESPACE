@@ -3,3 +3,6 @@
 export(make_palette)
 import(grDevices)
 import(graphics)
+import(jpeg)
+import(png)
+import(reshape2)
