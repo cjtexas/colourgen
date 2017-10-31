@@ -32,7 +32,7 @@ Stephen Few-esque Earth->Emerald...
 \examples{
 
 ### Brewer Colour Palette 
-colourgen(colour = 'Spectral')
+make_palette(colour = 'Spectral')
 
 ### COLOURlovers ID
 make_palette(colour = 3914747)
