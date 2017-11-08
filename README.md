@@ -11,7 +11,7 @@ colourgen
 
 ### Install
 
-Install using `devtools::install_github("onehundredpercenttexan/colourgen")`
+Install using `devtools::install_github("cjtexas/colourgen")`
 
 ### Basic Functionality
 
