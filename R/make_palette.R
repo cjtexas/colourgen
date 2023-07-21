@@ -73,7 +73,7 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
   # assume that a numeric is a COLOURLovers palette ID
   if (is.numeric(colour)) {
     colour_fun <- tryCatch({
-      res <- readLines(sprintf("http://www.colourlovers.com/api/palette/%s", colour[1]), warn = F)
+      res <- readLines(sprintf("https://www.colourlovers.com/api/palette/%s", colour[1]), warn = F)
       res <- res[which(grepl("<hex>(.*?)</hex>", res))]
       col_vec <- sub("\\t\t\t<hex>(.*?)</hex>",  "\\1", res)
       col_vec <- paste0('#', col_vec)
