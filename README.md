@@ -49,7 +49,7 @@ my_palette
 
 ``` r
 my_palette[4] <- "ivory"
-my_palette_redo <- colourgen::make_palette(colour = my_palette$palette)
+my_palette_mod <- colourgen::make_palette(colour = my_palette)
 ```
 
 ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-3-1.png)
