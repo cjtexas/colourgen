@@ -73,26 +73,7 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
   # assume that a numeric is a COLOURLovers palette ID
   if (is.numeric(colour)) {
     colour_fun <- tryCatch({
-      
-      url <- sprintf("https://www.colourlovers.com/api/palette/%s", colour[1])
-      
-      res <- httr::GET(
-        url,
-        httr::add_headers(
-          Connection = "keep-alive",
-          "Cache-Control" = "max-age=0",
-          DNT = "1",
-          "User-Agent" = "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0",
-          "Accept-Language" = "en-US,en;q=0.9,da;q=0.8,sv;q=0.7"
-        )
-      )
-      
-      res <- readLines(textConnection(content(res, "text")))
-      res <- res[which(grepl("<hex>(.*?)</hex>", res))]
-      col_vec <- sub("\\t\t\t<hex>(.*?)</hex>",  "\\1", res)
-      col_vec <- paste0('#', col_vec)
-      
-      colorRampPalette(col_vec)
+      cl_pal(colour)
     }, error = function(e) {
       default_pal(default)
     })
