@@ -19,7 +19,7 @@ The `colourgen` package provides a single, consistent interface for generating c
 
 The `colour` parameter will accept any base R color function, `RColorBrewer` named palette, `viridis` named palette or variable-length character vector of any combination of base `grDevices::colours` and hexadecimal colors.
 
-There aren't enough good diverging palettes so `colourgen::make_palette` will default some right out-of-the box.
+There aren't enough good diverging palettes so `colourgen` will default some right out-of-the box.
 
 `colourgen::make_palette()`
 
@@ -42,13 +42,13 @@ my_palette <- colourgen::make_palette(default = FALSE)
 If you like tweaking your color palettes, you can easily do that. Let's just simply replace the middle color with "ivory" and call `colourgen::make_palette` again to check the new results.
 
 ``` r
-my_palette$palette
+my_palette
 ```
 
     ## [1] "#3E2B09" "#6D501A" "#A89355" "#C8C9CA" "#65C39E" "#479D88" "#1C5C4E"
 
 ``` r
-my_palette$palette[4] <- "ivory"
+my_palette[4] <- "ivory"
 my_palette_redo <- colourgen::make_palette(colour = my_palette$palette)
 ```
 
@@ -64,7 +64,7 @@ If you want to interpolate a palette that normally has a hard limit; don't worry
 
 ### COLOURLovers API
 
-`colourgen` also supports the [COLOURLovers](http://www.colourlovers.com/palettes) palette API. Just supply a valid paletteID and you can interpolate over that palette 'til your heart's content.
+`colourgen` also supports the [COLOURLovers](https://www.colourlovers.com/palettes) palette API. Just supply a valid paletteID and you can interpolate over that palette 'til your heart's content.
 
 `colourgen::make_palette(colour = 3914747, n = 9)`
 
@@ -74,7 +74,7 @@ If you want to interpolate a palette that normally has a hard limit; don't worry
 
 `colourgen` will also accept an image path or url. For example, let's make a palette from the R logo!
 
-`colourgen::make_palette(colour = "http://r-project.org/Rlogo.png", n = 7)`
+`colourgen::make_palette(colour = "https://r-project.org/Rlogo.png", n = 7)`
 
 ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-6-1.png)
 
