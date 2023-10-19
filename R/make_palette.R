@@ -15,7 +15,7 @@
 #'
 #' @return list object containing palette and plot
 #'
-#' @import graphics grDevices
+#' @import graphics grDevices httr
 #'
 #' @examples 
 #' 
@@ -53,11 +53,11 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
     })
   }
   
-  if (!is.null(colour) && colour %in% c("rainbow", "heat.colors", "terrain.colors", "topo.colors", "cm.colors", "gray.colors")) {
+  if (!is.null(colour) && length(colour)==1 && colour %in% c("rainbow", "heat.colors", "terrain.colors", "topo.colors", "cm.colors", "gray.colors")) {
     colour_fun <- eval(parse(text = colour))
   }
   
-  if (!is.null(colour) && colour %in% c("viridis", "magma", "plasma", "inferno")) {
+  if (!is.null(colour) && length(colour)==1 && colour %in% c("viridis", "magma", "plasma", "inferno")) {
     if (suppressWarnings(require("viridisLite"))) {
       colour_fun <- eval(parse(text = colour))
     } else {
@@ -65,7 +65,7 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
     }
   }
   
-  if (!is.null(colour) && tolower(colour) %in% tolower(brewer_names)) {
+  if (!is.null(colour) && length(colour)==1 && tolower(colour) %in% tolower(brewer_names)) {
     column_match <- which(tolower(brewer_names) %in% tolower(colour))
     colour_fun <- colorRampPalette(brewer_list[[column_match]])
   } 
@@ -73,10 +73,25 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
   # assume that a numeric is a COLOURLovers palette ID
   if (is.numeric(colour)) {
     colour_fun <- tryCatch({
-      res <- readLines(sprintf("https://www.colourlovers.com/api/palette/%s", colour[1]), warn = F)
+      
+      url <- sprintf("https://www.colourlovers.com/api/palette/%s", colour[1])
+      
+      res <- httr::GET(
+        url,
+        httr::add_headers(
+          Connection = "keep-alive",
+          "Cache-Control" = "max-age=0",
+          DNT = "1",
+          "User-Agent" = "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0",
+          "Accept-Language" = "en-US,en;q=0.9,da;q=0.8,sv;q=0.7"
+        )
+      )
+      
+      res <- readLines(textConnection(content(res, "text")))
       res <- res[which(grepl("<hex>(.*?)</hex>", res))]
       col_vec <- sub("\\t\t\t<hex>(.*?)</hex>",  "\\1", res)
       col_vec <- paste0('#', col_vec)
+      
       colorRampPalette(col_vec)
     }, error = function(e) {
       default_pal(default)
@@ -107,18 +122,25 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
     colour_string <- sample(colour_fun(n))
   }
   
-  output <- list()
-  # set plot background to neutral grey
+  class(colour_string) <- c("colourgen", class(colour_string))
+  return(colour_string)
+  
+}
+
+
+
+#' @export
+print.colourgen <- function(x) {
+  cat(x, sep = "\n")
+}
+
+#' @export
+plot.colourgen <- function(x) {
   par(bg = "#BFBFBF")
   par(mar=c(7,2,2,2))
-  
-  barplot(height = rep(1, n), col = colour_string, yaxt = 'n', 
-          names.arg = colour_string, las = 2, border = NA, space = 0)
-  output$plot <- recordPlot()
+  n <- length(x)
+  barplot(height = rep(1, n), col = x, yaxt = "n", 
+          names.arg = x, las = 2, border = NA, space = 0)
   # set plot backround back to normal white
   par(bg = "#FFFFFF")
-  output$palette <- colour_string
-  
-  return(output)
-  
 }
