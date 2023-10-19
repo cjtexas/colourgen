@@ -3,7 +3,6 @@
 \docType{package}
 \name{colourgen}
 \alias{colourgen}
-\alias{colourgen-package}
 \title{colourgen}
 \description{
 Provides a single, consistent interface for generating colour palettes in R

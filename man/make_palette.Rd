@@ -4,8 +4,13 @@
 \alias{make_palette}
 \title{make_palette}
 \usage{
-make_palette(colour = NULL, n = 7, reverse = FALSE, shuffle = FALSE,
-  default = TRUE)
+make_palette(
+  colour = NULL,
+  n = 7,
+  reverse = FALSE,
+  shuffle = FALSE,
+  default = TRUE
+)
 }
 \arguments{
 \item{colour}{colour(s) to be turned into a palette}
