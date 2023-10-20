@@ -15,7 +15,7 @@
 #'
 #' @return list object containing palette and plot
 #'
-#' @import graphics grDevices httr
+#' @import graphics grDevices
 #'
 #' @examples 
 #' 
@@ -41,7 +41,6 @@
 #'
 make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default=TRUE) {
   
-  # load these from file to reduce dependency
   utils::data("brewer_list", package = "colourgen", envir = environment())
   brewer_names <- names(brewer_list)
   
@@ -71,7 +70,6 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
     colour_fun <- colorRampPalette(brewer_list[[column_match]])
   } 
 
-  # assume that a numeric is a COLOURLovers palette ID
   if (is.numeric(colour)) {
     colour_fun <- tryCatch({
       cl_pal(colour)
@@ -116,6 +114,8 @@ print.colourgen <- function(x) {
   cat(x, sep = "\n")
 }
 
+
+
 #' @export
 plot.colourgen <- function(x) {
   par(bg = "#BFBFBF")
@@ -123,6 +123,5 @@ plot.colourgen <- function(x) {
   n <- length(x)
   barplot(height = rep(1, n), col = x, yaxt = "n", 
           names.arg = x, las = 2, border = NA, space = 0)
-  # set plot backround back to normal white
   par(bg = "#FFFFFF")
 }

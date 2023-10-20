@@ -3,6 +3,7 @@
 #' @import graphics grDevices
 #' 
 default_pal <- function(default) {
+  
   invalid_color_warning <- ifelse(default, 
                                   "Empty or Unknown Colour(s)... \n  Defaulting to Tableau-esque \n  Orange-Blue Diverging Palette",
                                   "Empty or Unknown Colour(s)... \n  Defaulting to Stephen Few-esque \n  Earth-Emerald Diverging Palette")
@@ -19,5 +20,7 @@ default_pal <- function(default) {
                      '#55B89C', '#40907F', '#1C5C4E')
     colour_fun <- colorRampPalette(few_palette)
   }
+  
   return(colour_fun)
+  
 }

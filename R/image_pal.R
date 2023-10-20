@@ -27,7 +27,6 @@ image_pal <- function(image_source="https://www.r-project.org/Rlogo.png") {
     }
   }
   
-  # resize the image to 200x200 using sampling
   min_sample_vec <- min(dim(img)[1], dim(img)[2])
   subset_vec <- sample(1:min_sample_vec, min(min_sample_vec, 200))
   img <- img[subset_vec, subset_vec, ]
@@ -44,4 +43,4 @@ image_pal <- function(image_source="https://www.r-project.org/Rlogo.png") {
 
   return(colour_fun)
   
-  }
+}
