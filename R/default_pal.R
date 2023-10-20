@@ -5,8 +5,8 @@
 default_pal <- function(default) {
   
   invalid_color_warning <- ifelse(default, 
-                                  "Empty or Unknown Colour(s)... \n  Defaulting to Tableau-esque \n  Orange-Blue Diverging Palette",
-                                  "Empty or Unknown Colour(s)... \n  Defaulting to Stephen Few-esque \n  Earth-Emerald Diverging Palette")
+                                  "Empty or Unknown Colour(s)... \n  Defaulting to Tableau-style \n  Orange-Blue Diverging Palette",
+                                  "Empty or Unknown Colour(s)... \n  Defaulting to Stephen Few-style \n  Earth-Emerald Diverging Palette")
   message(invalid_color_warning)
   
   if (default) {
