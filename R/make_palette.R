@@ -89,22 +89,22 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
 
   if (!exists("colour_fun")) {
     colour_fun <- default_pal(default)
-    colour_string <- colour_fun(n)
+    colour_palette <- colour_fun(n)
   } else {
-    colour_string <- colour_fun(n)
+    colour_palette <- colour_fun(n)
   }
   
   if (reverse) {
-    colour_string <- rev(colour_fun(n))
+    colour_palette <- rev(colour_fun(n))
   }
   
   if (shuffle) {
     set.seed(333)
-    colour_string <- sample(colour_fun(n))
+    colour_palette <- sample(colour_fun(n))
   }
   
-  class(colour_string) <- c("colourgen", class(colour_string))
-  return(colour_string)
+  class(colour_palette) <- c("colourgen", class(colour_palette))
+  return(colour_palette)
   
 }
 
