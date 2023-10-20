@@ -15,16 +15,16 @@ Install using `devtools::install_github("cjtexas/colourgen")`
 
 ### Basic Functionality
 
-The `colourgen` package provides a single, consistent interface for generating colour palettes in R. The `colourgen::make_palette` function returns a list object containing a base graphics `plot` preview and `palette` character vector which make generating, inspecting and fine-tuning color palettes a breeze.
+The `colourgen` package provides a single, simple interface for generating colour palettes in R. `colourgen::make_palette` is the main function and returns a `colourgen` object with very handy `plot` and `print` methods to make generating, inspecting and fine-tuning color palettes a breeze.
 
-The `colour` parameter will accept any base R color function, `RColorBrewer` named palette, `viridis` named palette or variable-length character vector of any combination of base `grDevices::colours` and hexadecimal colors.
+The `colour` parameter will accept any base R color function, `RColorBrewer` named palette, `viridis` named palette, [COLOURLovers](https://www.colourlovers.com/palettes) palette ID or variable-length character vector of any combination of base `grDevices::colours` and/or hexadecimal colors.
 
-There aren't enough good diverging palettes so `colourgen` will default some right out-of-the box.
+At the time I created this package there weren't enough good diverging palettes and I tend to use them alot in my work, so `colourgen` will default to some right out-of-the box.
 
 `colourgen::make_palette()`
 
     ## Empty or Unknown Colour(s)... 
-    ##   Defaulting to Tableau-esque 
+    ##   Defaulting to Tableau-style 
     ##   Orange-Blue Diverging Palette
 
 ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
@@ -34,7 +34,7 @@ my_palette <- colourgen::make_palette(default = FALSE)
 ```
 
     ## Empty or Unknown Colour(s)... 
-    ##   Defaulting to Stephen Few-esque 
+    ##   Defaulting to Stephen Few-style 
     ##   Earth-Emerald Diverging Palette
 
 ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-2-1.png)
