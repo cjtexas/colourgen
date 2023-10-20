@@ -57,10 +57,11 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
     colour_fun <- eval(parse(text = colour))
   }
   
-  if (!is.null(colour) && length(colour)==1 && colour %in% c("viridis", "magma", "plasma", "inferno")) {
+  if (!is.null(colour) && length(colour)==1 && colour %in% c("cividis", "inferno", "magma", "mako", "plasma", "rocket", "turbo", "viridis")) {
     if (suppressWarnings(require("viridisLite"))) {
       colour_fun <- eval(parse(text = colour))
     } else {
+      warning(paste("Please install the viridisLite package in order to generate a palette from the colour:", colour))
       colour_fun <- default_pal(default)
     }
   }
