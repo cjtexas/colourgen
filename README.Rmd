@@ -5,40 +5,41 @@ output:
     toc: true
     fig_width: 8
     fig_height: 5
+pkgdown:
+  as_is: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ### Install
 
 Install using `devtools::install_github("cjtexas/colourgen")`
 
-### Basic Functionality
+The `colourgen` package provides a single, simple interface for generating colour palettes in R. `colourgen::make_palette` is the main function and returns a `colourgen` object with very handy `plot` and `print` methods to make generating, inspecting and fine-tuning color palettes a breeze.
 
-The `colourgen` package provides a single, consistent interface for generating colour palettes in R.
-The `colourgen::make_palette` function returns a list object containing a base graphics `plot` preview and `palette` character vector which make generating, inspecting and fine-tuning color palettes a breeze.
+The `colour` parameter will accept any base R color function, `RColorBrewer` named palette, `viridis` named palette, [COLOURLovers](https://www.colourlovers.com/palettes) palette ID or variable-length character vector of any combination of base `grDevices::colours` and/or hexadecimal colors.
 
-The `colour` parameter will accept any base R color function, `RColorBrewer` named palette, `viridis` named palette or variable-length character vector of any combination of base `grDevices::colours` and hexadecimal colors. 
+At the time I created this package there weren't enough good diverging palettes and I tend to use them alot in my work, so `colourgen` will default to some right out-of-the box.
 
-There aren't enough good diverging palettes so `colourgen::make_palette` will default some right out-of-the box.
 
 `colourgen::make_palette()`
 ```{r, echo=FALSE}
-invisible(colourgen::make_palette())
+plot(colourgen::make_palette())
 ```
 
 ```{r, echo=TRUE}
 my_palette <- colourgen::make_palette(default = FALSE)
+plot(my_palette)
 ```
 
 If you like tweaking your color palettes, you can easily do that. Let's just simply replace the middle color with "ivory" and call `colourgen::make_palette` again to check the new results.
 
 ```{r, echo=TRUE}
-my_palette$palette
-my_palette$palette[4] <- "ivory"
-my_palette_redo <- colourgen::make_palette(colour = my_palette$palette)
+my_palette[4] <- "ivory"
+my_palette_mod <- colourgen::make_palette(colour = my_palette)
+plot(my_palette_mod)
 ```
 
 
@@ -49,7 +50,7 @@ If you want to interpolate a palette that normally has a hard limit; don't worry
 `colourgen::make_palette(colour = "set1", n = 15)`
 
 ```{r, echo=FALSE}
-invisible(colourgen::make_palette(colour = "set1", 15))
+plot(colourgen::make_palette(colour = "set1", 15))
 ```
 
 
@@ -60,7 +61,7 @@ invisible(colourgen::make_palette(colour = "set1", 15))
 `colourgen::make_palette(colour = 3914747, n = 9)`
 
 ```{r, echo=FALSE}
-invisible(colourgen::make_palette(colour = 3914747, n = 9))
+plot(colourgen::make_palette(colour = 3914747, n = 9))
 ```
 
 
@@ -71,7 +72,7 @@ invisible(colourgen::make_palette(colour = 3914747, n = 9))
 `colourgen::make_palette(colour = "http://r-project.org/Rlogo.png", n = 7)`
 
 ```{r, echo=FALSE}
-invisible(colourgen::make_palette(colour = "http://r-project.org/Rlogo.png", n = 7))
+plot(colourgen::make_palette(colour = "https://r-project.org/Rlogo.png", n = 7))
 ```
 
 ### Other Options
@@ -81,14 +82,14 @@ invisible(colourgen::make_palette(colour = "http://r-project.org/Rlogo.png", n =
 `colourgen::make_palette(colour = "set3", n = 9, shuffle = TRUE)`
 
 ```{r, echo=FALSE}
-invisible(colourgen::make_palette(colour = "set3", n = 9, shuffle = T))
+plot(colourgen::make_palette(colour = "set3", n = 9, shuffle = T))
 ```
 
 
 `colourgen::make_palette(colour = "Purples", n = 15, reverse = TRUE)`
 
 ```{r, echo=FALSE}
-invisible(colourgen::make_palette(colour = "Purples", n = 15, reverse = T))
+plot(colourgen::make_palette(colour = "Purples", n = 15, reverse = T))
 ```
 
 
