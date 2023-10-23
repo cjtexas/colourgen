@@ -82,10 +82,6 @@ your heart’s content.
 
 `colourgen::make_palette(colour = 3914747, n = 9)`
 
-    ## Empty or Unknown Colour(s)... 
-    ##   Defaulting to Tableau-style 
-    ##   Orange-Blue Diverging Palette
-
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ### Image Sampling
