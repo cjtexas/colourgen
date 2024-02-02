@@ -3,7 +3,7 @@ colourgen
 
 - [Install](#install)
 - [No Limitations](#no-limitations)
-- [COLOURLovers API](#colourlovers-api)
+- [color-hex API](#color-hex-api)
 - [Image Sampling](#image-sampling)
 - [Other Options](#other-options)
 - [Summary](#summary)
@@ -20,7 +20,7 @@ palettes a breeze.
 
 The `colour` parameter will accept any base R color function,
 `RColorBrewer` named palette, `viridis` named palette,
-[COLOURLovers](https://www.colourlovers.com/palettes) palette ID or
+[color-hex](https://www.color-hex.com/color-palettes/) palette ID or
 variable-length character vector of any combination of base
 `grDevices::colours` and/or hexadecimal colors.
 
@@ -73,14 +73,14 @@ still be careful and use common sense ;)*
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-### COLOURLovers API
+### color-hex API
 
 `colourgen` also supports the
-[COLOURLovers](http://www.colourlovers.com/palettes) palette API. Just
+[color-hex](https://www.color-hex.com/color-palettes/) palette API. Just
 supply a valid paletteID and you can interpolate over that palette ’til
 your heart’s content.
 
-`colourgen::make_palette(colour = 3914747, n = 9)`
+`colourgen::make_palette(colour = 1010612, n = 7)`
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 

@@ -1,15 +1,12 @@
-#' cl_pal
-#' :DEPRECATED: now using ch_pal instead
+#' ch_pal
 #' 
-#' @param colour int colourlovers palette id
+#' @param colour int color-hex.com palette id
 #' 
 #' @import httr
 #' 
-#' @keywords DEPRECATED
-#' 
-cl_pal <- function(colour) {
+ch_pal <- function(colour) {
   
-  url <- sprintf("https://www.colourlovers.com/api/palette/%s", colour[1])
+  url <- sprintf("https://www.color-hex.com/color-palette/%s", colour[1])
   
   res <- httr::GET(
     url,
@@ -23,9 +20,8 @@ cl_pal <- function(colour) {
   )
   
   res <- readLines(textConnection(content(res, "text")))
-  res <- res[which(grepl("<hex>(.*?)</hex>", res))]
-  col_vec <- sub("\\t\t\t<hex>(.*?)</hex>",  "\\1", res)
-  col_vec <- paste0('#', col_vec)
+  res <- res[which(grepl("palettecolordivc", res))]
+  col_vec <- sub('.*title="#([a-fA-F0-9]{6})".*', '#\\1', res[grep('title="#[a-fA-F0-9]{6}"', res)])
   
   colour_fun <- colorRampPalette(col_vec)
   

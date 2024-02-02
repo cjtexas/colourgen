@@ -2,7 +2,8 @@
 % Please edit documentation in R/cl_pal.r
 \name{cl_pal}
 \alias{cl_pal}
-\title{cl_pal}
+\title{cl_pal
+:DEPRECATED: now using ch_pal instead}
 \usage{
 cl_pal(colour)
 }
@@ -11,4 +12,6 @@ cl_pal(colour)
 }
 \description{
 cl_pal
+:DEPRECATED: now using ch_pal instead
 }
+\keyword{DEPRECATED}

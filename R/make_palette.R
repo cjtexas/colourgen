@@ -2,7 +2,7 @@
 #'
 #' @description This function will generate colour palettes of arbitrary size
 #' from an R base graphics color function, ColorBrewer named palette, 
-#' COLOURLovers pallete ID or vector of named or hex colours.
+#' color-hex.com palette ID or vector of named or hex colours.
 #' Also, a source image file (png or jpeg) or url can be used.
 #' Defaults to a nice Tableau-esque Orange->Blue divering or 
 #' Stephen Few-esque Earth->Emerald...
@@ -22,9 +22,9 @@
 #' ### Brewer Colour Palette 
 #' make_palette(colour = 'Spectral')
 #'
-#' ### COLOURlovers ID
-#' make_palette(colour = 3914747)
-#' make_palette(colour = 987654)
+#' ###  color-hex.com palette ID
+#' make_palette(colour = 1010612)
+#' make_palette(colour = 1040526)
 #' 
 #' ### Custom Colour Vector
 #' my_colours <- c("#CAF60D", "#18D33A", "#4255EC", "#E60873", "#19312A")
@@ -72,7 +72,7 @@ make_palette <- function(colour=NULL, n=7, reverse=FALSE, shuffle=FALSE, default
 
   if (is.numeric(colour)) {
     colour_fun <- tryCatch({
-      cl_pal(colour)
+      ch_pal(colour)
     }, error = function(e) {
       default_pal(default)
     })
