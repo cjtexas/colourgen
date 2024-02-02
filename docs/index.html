@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">colourgen</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0</span>
       </span>
     </div>
 
@@ -44,15 +44,7 @@
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-    <li>
-  <a href="https://github.com/cjtexas/colourgen">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
-</ul>
-
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -70,7 +62,7 @@
 <ul>
 <li><a href="#install">Install</a></li>
 <li><a href="#no-limitations">No Limitations</a></li>
-<li><a href="#colourlovers-api">COLOURLovers API</a></li>
+<li><a href="#color-hex-api">color-hex API</a></li>
 <li><a href="#image-sampling">Image Sampling</a></li>
 <li><a href="#other-options">Other Options</a></li>
 <li><a href="#summary">Summary</a></li>
@@ -80,13 +72,13 @@
 </h3>
 <p>Install using <code>devtools::install_github("cjtexas/colourgen")</code></p>
 <p>The <code>colourgen</code> package provides a single, simple interface for generating colour palettes in R. <code><a href="reference/make_palette.html">colourgen::make_palette</a></code> is the main function and returns a <code>colourgen</code> object with very handy <code>plot</code> and <code>print</code> methods to make generating, inspecting and fine-tuning color palettes a breeze.</p>
-<p>The <code>colour</code> parameter will accept any base R color function, <code>RColorBrewer</code> named palette, <code>viridis</code> named palette, <a href="https://www.colourlovers.com/palettes" class="external-link">COLOURLovers</a> palette ID or variable-length character vector of any combination of base <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">grDevices::colours</a></code> and/or hexadecimal colors.</p>
+<p>The <code>colour</code> parameter will accept any base R color function, <code>RColorBrewer</code> named palette, <code>viridis</code> named palette, <a href="https://www.color-hex.com/color-palettes/" class="external-link">color-hex</a> palette ID or variable-length character vector of any combination of base <code><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">grDevices::colours</a></code> and/or hexadecimal colors.</p>
 <p>At the time I created this package there weren’t enough good diverging palettes and I tend to use them alot in my work, so <code>colourgen</code> will default to some right out-of-the box.</p>
 <p><code><a href="reference/make_palette.html">colourgen::make_palette()</a></code></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## Empty or Unknown Colour(s)... </span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="do">##   Defaulting to Tableau-style </span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="do">##   Orange-Blue Diverging Palette</span></span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png"><!-- --></p>
+<p><img src="README_files/figure-gfm/unnamed-chunk-1-1.png"><!-- --></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_palette</span> <span class="op">&lt;-</span> <span class="fu">colourgen</span><span class="fu">::</span><span class="fu"><a href="reference/make_palette.html">make_palette</a></span><span class="op">(</span>default <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="do">## Empty or Unknown Colour(s)... </span></span>
@@ -110,13 +102,10 @@
 <p><img src="README_files/figure-gfm/unnamed-chunk-4-1.png"><!-- --></p>
 </div>
 <div class="section level3">
-<h3 id="colourlovers-api">COLOURLovers API<a class="anchor" aria-label="anchor" href="#colourlovers-api"></a>
+<h3 id="color-hex-api">color-hex API<a class="anchor" aria-label="anchor" href="#color-hex-api"></a>
 </h3>
-<p><code>colourgen</code> also supports the <a href="http://www.colourlovers.com/palettes" class="external-link">COLOURLovers</a> palette API. Just supply a valid paletteID and you can interpolate over that palette ’til your heart’s content.</p>
-<p><code>colourgen::make_palette(colour = 3914747, n = 9)</code></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="do">## Empty or Unknown Colour(s)... </span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="do">##   Defaulting to Tableau-style </span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="do">##   Orange-Blue Diverging Palette</span></span></code></pre></div>
+<p><code>colourgen</code> also supports the <a href="https://www.color-hex.com/color-palettes/" class="external-link">color-hex</a> palette API. Just supply a valid paletteID and you can interpolate over that palette ’til your heart’s content.</p>
+<p><code>colourgen::make_palette(colour = 1010612, n = 7)</code></p>
 <p><img src="README_files/figure-gfm/unnamed-chunk-5-1.png"><!-- --></p>
 </div>
 <div class="section level3">
