@@ -125,3 +125,26 @@ plot.colourgen <- function(x) {
           names.arg = x, las = 2, border = NA, space = 0)
   par(bg = "#FFFFFF")
 }
+
+
+
+#' @export
+c.colourgen <- function(..., recursive = FALSE) {
+  dots <- list(...)
+  ns <- sapply(dots, attr, which = "n")
+  classes <- rep("colourgen", length(dots))
+  res <- structure(unlist(dots, recursive = FALSE), class = classes)
+  attr(res, "n") <- ns
+  res
+}
+
+
+
+#' @export
+`[.colourgen` <- function (x, i) {
+  y <- unclass(x)[i]
+  ns <- attr(x, "n")[i]
+  class(y) <- "colourgen"
+  attr(y, "n") <- ns
+  y
+}
